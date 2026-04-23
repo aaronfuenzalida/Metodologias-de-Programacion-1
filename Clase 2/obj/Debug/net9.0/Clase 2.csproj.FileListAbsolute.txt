@@ -1,0 +1,14 @@
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.AssemblyInfoInputs.cache
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.AssemblyInfo.cs
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.csproj.CoreCompileInputs.cache
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\bin\Debug\net9.0\Clase 2.exe
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\bin\Debug\net9.0\Clase 2.deps.json
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\bin\Debug\net9.0\Clase 2.runtimeconfig.json
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\bin\Debug\net9.0\Clase 2.dll
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\bin\Debug\net9.0\Clase 2.pdb
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.dll
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\refint\Clase 2.dll
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.pdb
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\Clase 2.genruntimeconfig.cache
+C:\Users\Aaron\Documents\Metodologias de Programacion\Clase 2\obj\Debug\net9.0\ref\Clase 2.dll
