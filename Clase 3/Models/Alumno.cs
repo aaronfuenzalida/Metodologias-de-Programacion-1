@@ -15,7 +15,7 @@ namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Models
 	/// <summary>
 	/// Description of Alumno.
 	/// </summary>
-	public class Alumno : Persona
+	public class Alumno : Persona , IObservador
 	{
 		private int legajo;
 		private int promedio;
@@ -50,6 +50,34 @@ namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Models
 		public override bool sosMenor(Comparable persona) => estrategia.comparar((Alumno)persona, this);
 
 		public override bool sosMayor(Comparable persona) => estrategia.comparar(this, (Alumno)persona);
+
+		public void prestarAtencion()
+		{
+			Console.WriteLine("Prestando atención");
+		}
+
+		public void distraerse()
+		{
+			string[] distracciones = {"Dibujando en el margen de la carpeta", "Mirando el celuar", "Tirando aviones de papel" };
+			Random rand = new Random();
+			int index = rand.Next(distracciones.Length);
+			Console.WriteLine(distracciones[index]);
+		}
+
+		void IObservador.actualizar(IObservado o)
+		{
+			if (o is Profesor profesor)
+			{
+				if (profesor.estaHablando())
+				{
+					this.prestarAtencion();
+				}
+				else
+				{
+					this.distraerse();
+				}
+			}
+		}
 	}
 }
 

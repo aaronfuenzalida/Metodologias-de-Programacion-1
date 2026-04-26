@@ -5,6 +5,7 @@ using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
 using Metodologias_de_Programacion.Clase_3_Factory__Observer.Factory;
 using Metodologias_de_Programacion.Clase_3_Factory__Observer.Iterator;
 using Metodologias_de_Programacion.Clase_3_Factory__Observer.Strategy;
+using System.Net.NetworkInformation;
 
 namespace Metodologias_de_Programacion.Clase_3_Factory__Observer
 {
@@ -12,29 +13,64 @@ namespace Metodologias_de_Programacion.Clase_3_Factory__Observer
 	{
 		public static void Main(string[] args)
 		{	
-			//Ejercicio 9 -------
-			Pila pila = new Pila();
-			Console.Write("Ingrese nombre del comparable que desea crear: ");
-			string opcion = Console.ReadLine();
-			if(opcion == "Profesor")
-			{
-				
-			}
-			llenar(pila,opcion);
-			cambiarEstrategia(pila,new PorNombre());
-			Console.WriteLine("------------- Compara por nombre -------------");
-			informar(pila,opcion);
-			cambiarEstrategia(pila,new PorLegajo());
-			Console.WriteLine("------------- Compara por legajo -------------");
-			informar(pila,opcion);
-			cambiarEstrategia(pila,new PorPromedio());
-			Console.WriteLine("------------- Compara por Promedio -------------");
-			informar(pila,opcion);
-			cambiarEstrategia(pila,new PorDni());
-			Console.WriteLine("------------- Compara por DNI -------------");
-			informar(pila,opcion);
-			
-			Console.ReadKey(true);
+		/*Ejercicio 9 -------
+		Pila pila = new Pila();
+		Console.Write("Ingrese nombre del comparable que desea crear: ");
+		string opcion = Console.ReadLine();
+		
+		llenar(pila, opcion);
+
+		if(opcion == "Profesor")
+		{
+			// PRUEBAS EXCLUSIVAS PARA PROFESOR
+			cambiarEstrategia(pila, new PorNombre());
+			Console.WriteLine("------------- PROFESOR: Compara por nombre -------------");
+			informar(pila, opcion);
+
+			cambiarEstrategia(pila, new PorDni());
+			Console.WriteLine("------------- PROFESOR: Compara por DNI -------------");
+			informar(pila, opcion);
+
+			cambiarEstrategia(pila, new PorAntiguedad());
+			Console.WriteLine("------------- PROFESOR: Compara por Antigüedad -------------");
+			informar(pila, opcion);
+		}
+		else if (opcion == "Alumno")
+		{
+			// PRUEBAS EXCLUSIVAS PARA ALUMNO 
+			cambiarEstrategia(pila, new PorNombre());
+			Console.WriteLine("------------- ALUMNO: Compara por nombre -------------");
+			informar(pila, opcion);
+
+			cambiarEstrategia(pila, new PorLegajo());
+			Console.WriteLine("------------- ALUMNO: Compara por legajo -------------");
+			informar(pila, opcion);
+
+			cambiarEstrategia(pila, new PorPromedio());
+			Console.WriteLine("------------- ALUMNO: Compara por Promedio -------------");
+			informar(pila, opcion);
+
+			cambiarEstrategia(pila, new PorDni());
+			Console.WriteLine("------------- ALUMNO: Compara por DNI -------------");
+			informar(pila, opcion);
+		}
+		else
+		{
+			informar(pila, opcion);
+		}
+		*/
+
+		//Ejercicio 14
+
+		Profesor profesor = new Profesor("Pedro", 12345678, 10);
+		for (int i = 1; i<=20; i++)
+		{
+			Comparable alumno = FabricaDeComparables.CrearAleatorio("Alumno");
+			profesor.agregarObservador((IObservador)alumno);
+		}
+		DictadoDeClases(profesor);
+
+		Console.ReadKey(true);
 		}
 		
 		//Ejercicio 2 --------
@@ -77,29 +113,37 @@ namespace Metodologias_de_Programacion.Clase_3_Factory__Observer
 		}
 		//-----
 		
-public static void cambiarEstrategia(IColeccionable coleccionable, IEstrategia estrategia)
-{
-    IIterador iterador = ((IIterable)coleccionable).crearIterador();
-    iterador.primero();
-    
-    while(!iterador.fin())
-    {
-        Comparable elemento = iterador.actual();
-        
-		//Por que chequear el tipo de elemento?↓↓↓
-		//Existen estrategias que son exclusivas de cada SUBCLASE!!
-		
-        if (elemento is Alumno)
-        {
-            ((Alumno)elemento).cambiarEstrategia(estrategia);
-        }
-        else if (elemento is Profesor)
-        {
-            ((Profesor)elemento).cambiarEstrategia(estrategia);
-        }
-        
-        iterador.siguiente();
-    }
-}
+		public static void cambiarEstrategia(IColeccionable coleccionable, IEstrategia estrategia)
+		{
+			IIterador iterador = ((IIterable)coleccionable).crearIterador();
+			iterador.primero();
+			
+			while(!iterador.fin())
+			{
+				Comparable elemento = iterador.actual();
+				
+				//Por que chequear el tipo de elemento?↓↓↓
+				//Existen estrategias que son exclusivas de cada SUBCLASE!!
+
+				if (elemento is Alumno)
+				{
+					((Alumno)elemento).cambiarEstrategia(estrategia);
+				}
+				else if (elemento is Profesor)
+				{
+					((Profesor)elemento).cambiarEstrategia(estrategia);
+				}
+				
+				iterador.siguiente();
+			}
+		}
+
+		//Ejercicio 13
+		public static void DictadoDeClases(Profesor p){
+			for(int i= 1 ; i <= 5; i++){
+				p.hablarALaClase();
+				p.escribirEnElPizarron();
+			}
+		}
 	}
 }
