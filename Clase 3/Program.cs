@@ -77,17 +77,29 @@ namespace Metodologias_de_Programacion.Clase_3_Factory__Observer
 		}
 		//-----
 		
-		//Ejercicio 8 ------
-		public static void cambiarEstrategia(IColeccionable coleccionable, IEstrategia estrategia){
-			IIterador iterador = ((IIterable)coleccionable).crearIterador();
-			iterador.primero();
-			while(!iterador.fin()){
-				Comparable elemento= iterador.actual();
-				Alumno alumno = (Alumno)elemento;
-        		alumno.cambiarEstrategia(estrategia);
-        		iterador.siguiente();
-			}
-		}
-		// ----------
+public static void cambiarEstrategia(IColeccionable coleccionable, IEstrategia estrategia)
+{
+    IIterador iterador = ((IIterable)coleccionable).crearIterador();
+    iterador.primero();
+    
+    while(!iterador.fin())
+    {
+        Comparable elemento = iterador.actual();
+        
+		//Por que chequear el tipo de elemento?↓↓↓
+		//Existen estrategias que son exclusivas de cada SUBCLASE!!
+		
+        if (elemento is Alumno)
+        {
+            ((Alumno)elemento).cambiarEstrategia(estrategia);
+        }
+        else if (elemento is Profesor)
+        {
+            ((Profesor)elemento).cambiarEstrategia(estrategia);
+        }
+        
+        iterador.siguiente();
+    }
+}
 	}
 }
