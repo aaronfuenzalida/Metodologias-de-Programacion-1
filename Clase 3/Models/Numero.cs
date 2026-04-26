@@ -7,8 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
 
-namespace Clase_3_Factory__Observer
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Models
 {
 
 	public class Numero : Comparable

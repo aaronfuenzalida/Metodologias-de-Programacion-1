@@ -7,14 +7,15 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Models;
 
-namespace Clase_3_Factory__Observer
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces
 {
 	/// <summary>
 	/// Description of Estrategia.
 	/// </summary>
 	public interface IEstrategia
 	{
-		bool comparar(Alumno alumno1, Alumno alumno2);
+		bool comparar(Comparable c1, Comparable c2);
 	}
 }

@@ -7,16 +7,18 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Models;
 
-namespace Clase_3_Factory__Observer
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Strategy
 {
 	/// <summary>
 	/// Description of PorNombre.
 	/// </summary>
 	public class PorNombre : IEstrategia
 	{
-		public bool comparar(Alumno a1, Alumno a2){
-			return a1.getNombre().Length > a2.getNombre().Length;
+		public bool comparar(Comparable c1, Comparable c2){
+			return ((Persona)c1).getNombre().Length > ((Persona)c2).getNombre().Length;
 			}
 		}
 	}

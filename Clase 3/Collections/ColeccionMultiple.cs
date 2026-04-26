@@ -7,8 +7,10 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Iterator;
 
-namespace Clase_3_Factory__Observer
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Collections
 {
 	/// <summary>
 	/// Description of ColeccionMultiple.

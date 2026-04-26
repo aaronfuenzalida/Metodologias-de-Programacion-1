@@ -6,7 +6,9 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-namespace Clase_3_Factory__Observer
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
+
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Iterator
 {
 	/// <summary>
 	/// Description of IteradorDeCola.

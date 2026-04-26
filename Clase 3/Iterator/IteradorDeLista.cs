@@ -1,4 +1,6 @@
-namespace Clase_3_Factory__Observer
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
+
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer.Iterator
 {
 	public class IteradorDeLista : IIterador
 	{

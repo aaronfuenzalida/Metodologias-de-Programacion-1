@@ -1,95 +1,68 @@
-﻿namespace Clase_3_Factory__Observer
+﻿using System.Collections;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Collections;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Models;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Interfaces;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Factory;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Iterator;
+using Metodologias_de_Programacion.Clase_3_Factory__Observer.Strategy;
+
+namespace Metodologias_de_Programacion.Clase_3_Factory__Observer
 {
 	class Program
 	{
 		public static void Main(string[] args)
-		{
-			//Ejercicio 2 --------
-			//Pila pila2 = new Pila();
-			//Cola cola2 = new Cola();
-			//ColeccionMultiple multiple= new ColeccionMultiple(cola2,pila2);
-			//llenarAlumnos(pila2);
-			//llenarAlumnos(cola2);
-			//informar(multiple);
-			// --------
-			
-			//Ejercicio 7 --------
-			//Pila pila = new Pila();
-			//Cola cola= new Cola();
-			//Conjunto conjunto = new Conjunto();
-			//llenarAlumnos(pila);
-			//llenarAlumnos(cola);
-			//llenarAlumnos(conjunto);
-			//Console.WriteLine("--------------------- Elementos de pila---------------------");
-			//imprimirElementos(pila);
-			//Console.WriteLine("--------------------- Elementos de cola---------------------");
-			//imprimirElementos(cola);
-			//Console.WriteLine("--------------------- Elementos de conjunto---------------------");
-			//imprimirElementos(conjunto);
-			
+		{	
 			//Ejercicio 9 -------
 			Pila pila = new Pila();
-			llenarAlumnos(pila);
+			Console.Write("Ingrese nombre del comparable que desea crear: ");
+			string opcion = Console.ReadLine();
+			if(opcion == "Profesor")
+			{
+				
+			}
+			llenar(pila,opcion);
 			cambiarEstrategia(pila,new PorNombre());
 			Console.WriteLine("------------- Compara por nombre -------------");
-			informar(pila);
+			informar(pila,opcion);
 			cambiarEstrategia(pila,new PorLegajo());
 			Console.WriteLine("------------- Compara por legajo -------------");
-			informar(pila);
+			informar(pila,opcion);
 			cambiarEstrategia(pila,new PorPromedio());
 			Console.WriteLine("------------- Compara por Promedio -------------");
-			informar(pila);
+			informar(pila,opcion);
 			cambiarEstrategia(pila,new PorDni());
 			Console.WriteLine("------------- Compara por DNI -------------");
-			informar(pila);
+			informar(pila,opcion);
 			
 			Console.ReadKey(true);
 		}
 		
-		static Random aleatorio = new Random();
-		
 		//Ejercicio 2 --------
-		public static void llenarAlumnos (IColeccionable coleccionable){
-			string[] nombres= new string[]{"Marcos","Mateo","Pedro","Ignacio","Carlos","Valentina","Victoria","Adriana","Emilia","Matias"};
-			for(int i=0 ; i<20 ; i++){
-				int indiceAleatorio= aleatorio.Next(0,nombres.Length);
-				Alumno al = new Alumno(nombres[indiceAleatorio],aleatorio.Next(45000000, 48000000),aleatorio.Next(1000,1200),aleatorio.Next(1,11));
-		//Se comenta la siguiente linea para el ejercicio 7: al.cambiarEstrategia(new PorPromedio());
-				coleccionable.agregar(al);
+		public static void llenar(IColeccionable coleccionable, string opcion) 
+		{
+			for (int i= 1 ; i <= 20; i++)
+			{
+				Comparable c = FabricaDeComparables.CrearAleatorio(opcion);
+				coleccionable.agregar(c);
 			}
 		}
 		
-		public static void informar(IColeccionable coleccionable){
-			//Nota: Unicamente se modifico el ToString de alumno para mostrar la nota en vez del legajo.
-			Console.WriteLine("El collecionable contiene {0} elementos",coleccionable.cuantos());
-			Console.WriteLine("Elemento minimo del coleccionable: {0}", coleccionable.minimo());
-			Console.WriteLine("Elemento maximo del collecionables: {0}", coleccionable.maximo());
-			//Depende de la estrategia a utilizar ↓↓↓↓↓ 
-            Console.WriteLine("--- Búsqueda de Alumno ---");
-
-            Console.Write("Ingrese el Nombre para verificar: ");
-            string nombreBuscado = Console.ReadLine() ?? "";
-
-            Console.Write("Ingrese el DNI para verificar: ");
-            int dniBuscado = int.Parse(Console.ReadLine() ?? "0");
-
-            Console.Write("Ingrese el Legajo para verificar: ");
-            int legajoBuscado = int.Parse(Console.ReadLine() ?? "0");
-
-            Console.Write("Ingrese el Promedio para verificar: ");
-            int promedioBuscado = int.Parse(Console.ReadLine() ?? "0");
-
-            Comparable valor = new Alumno(nombreBuscado, dniBuscado, legajoBuscado, promedioBuscado);
-
-            if (coleccionable.contiene(valor))
-            {
-                Console.WriteLine("El elemento leído ESTÁ en la colección");
-            }
-			else{
-			Console.WriteLine("El elemento leído no está en la colección");
+		public static void informar(IColeccionable coleccionable, string opcion)
+		{
+			Console.WriteLine("Cantidad de elementos: " + coleccionable.cuantos());
+			Console.WriteLine("Minimo: " + coleccionable.minimo());
+			Console.WriteLine("Maximo: " + coleccionable.maximo());
+			Comparable c = FabricaDeComparables.CrearPorTeclado(opcion);
+			if (coleccionable.contiene(c))
+			{
+				Console.WriteLine("El elemento leído está en la colección");
 			}
-			
+			else
+			{
+				Console.WriteLine("El elemento leído no está en la colección");
+			}
 		}
+	
 		//--------------------------
 		
 		
