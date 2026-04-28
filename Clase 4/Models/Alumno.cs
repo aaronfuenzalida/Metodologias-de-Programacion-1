@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Text;
 using Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Interfaces;
 using Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Strategy;
 
@@ -20,6 +21,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models
 		private int legajo;
 		private int promedio;
 		private IEstrategia estrategia;
+		private int calificacion;
 		
 		public Alumno(string n,int d,int l, int p) :base(n,d)
 		{
@@ -77,6 +79,27 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models
 					this.distraerse();
 				}
 			}
+		}
+
+		public void setNota(int nota)
+		{
+			this.calificacion = nota;
+		}
+
+		public int getNota()
+		{
+			return this.calificacion;
+		}
+
+		public virtual int responderPregunta(int pregunta)
+		{
+			Random random = new Random();
+			return random.Next(1,4);
+		}
+
+		public string mostrarCalificacion()
+		{
+			return new StringBuilder().Append(this.getNombre()).Append(" ").Append(this.getNota()).ToString();
 		}
 	}
 }
