@@ -34,7 +34,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator
 				{
 					Comparable alumno = FabricaDeComparables.CrearAleatorio("Alumno");
 					AlumnoMuyEstudioso alumnMuyEstudioso = new AlumnoMuyEstudioso(((Alumno)alumno).getNombre(), ((Alumno)alumno).getDni(), ((Alumno)alumno).getLegajo(), ((Alumno)alumno).getPromedio());
-					Student alumnoMuyEstudiosoAdapter = new AlumnoMuyEstudiosoAdapter(alumnMuyEstudioso);
+					Student alumnoMuyEstudiosoAdapter = new AlumnoAdapter(alumnMuyEstudioso);
 					teacher.goToClass(alumnoMuyEstudiosoAdapter);
 
 				}
