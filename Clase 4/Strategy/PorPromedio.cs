@@ -18,7 +18,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Strategy
 	public class PorPromedio : IEstrategia
 	{
 		public bool comparar(Comparable c1, Comparable c2){
-			return ((Alumno)c1).getPromedio() > ((Alumno)c2).getPromedio();
+			return ((IAlumno)c1).getPromedio() > ((IAlumno)c2).getPromedio();
 		}
 	}
 }

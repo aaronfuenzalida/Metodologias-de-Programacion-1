@@ -18,7 +18,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Strategy
 	public class PorDni : IEstrategia
 	{
 		public bool comparar(Comparable c1, Comparable c2){
-			return ((Persona)c1).getDni() > ((Persona)c2).getDni();
+			return ((IPersona)c1).getDni() > ((IPersona)c2).getDni();
 		}
 	}
 }

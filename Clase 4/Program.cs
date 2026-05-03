@@ -22,19 +22,27 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator
 		public static void testAdapter()
 		{
 			Teacher teacher = new Teacher();
+			StudentsFactory sf = new StudentsFactory();
+			sf.setAleatorioON();
+
+			StudentStudiousFactory ssf = new StudentStudiousFactory();
+			ssf.setAleatorioON();
 			for (int i= 0 ; i < 20; i++)
 			{
 				if(i >= 10)
 				{
-					Comparable alumno = FabricaDeComparables.CrearAleatorio("Alumno");
+					/*Comparable alumno = FabricaDeComparables.CrearAleatorio("Alumno");
 					Student alumnoAdapter = new AlumnoAdapter((Alumno)alumno);
-					teacher.goToClass(alumnoAdapter);
+					teacher.goToClass(alumnoAdapter);*/
+					teacher.goToClass(sf.studentDecoration());
+
 				}
 				else
 				{
-					Comparable alumno = FabricaDeComparables.CrearAleatorio("AlumnoEstudioso");
+					/*Comparable alumno = FabricaDeComparables.CrearAleatorio("AlumnoEstudioso");
 					Student alumnoMuyEstudiosoAdapter = new AlumnoAdapter((Alumno)alumno);
-					teacher.goToClass(alumnoMuyEstudiosoAdapter);
+					teacher.goToClass(alumnoMuyEstudiosoAdapter);*/
+					teacher.goToClass(ssf.StudentStudiousDecoration());
 
 				}
 			}

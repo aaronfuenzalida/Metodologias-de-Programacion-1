@@ -16,7 +16,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models
 	/// <summary>
 	/// Description of Alumno.
 	/// </summary>
-	public class Alumno : Persona , IObservador
+	public class Alumno : Persona , IObservador, IAlumno
 	{
 		private int legajo;
 		private int promedio;
@@ -49,9 +49,9 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models
 		
 		public override bool sosIgual(Comparable persona) => !this.sosMenor(persona) && !this.sosMayor(persona);
 
-		public override bool sosMenor(Comparable persona) => estrategia.comparar((Alumno)persona, this);
+		public override bool sosMenor(Comparable persona) => estrategia.comparar((IAlumno)persona, this);
 
-		public override bool sosMayor(Comparable persona) => estrategia.comparar(this, (Alumno)persona);
+		public override bool sosMayor(Comparable persona) => estrategia.comparar(this, (IAlumno)persona);
 
 		public void prestarAtencion()
 		{

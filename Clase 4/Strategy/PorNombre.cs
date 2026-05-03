@@ -18,7 +18,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Strategy
 	public class PorNombre : IEstrategia
 	{
 		public bool comparar(Comparable c1, Comparable c2){
-			return ((Persona)c1).getNombre().Length > ((Persona)c2).getNombre().Length;
+			return ((IPersona)c1).getNombre().Length > ((IPersona)c2).getNombre().Length;
 			}
 		}
 	}

@@ -1,13 +1,14 @@
 using Metodologias_de_Programacion.Clase_4_Adapter__Decorator;
 using Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models;
+using Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Interfaces;
 
 namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Adapter
 {
     public class AlumnoAdapter : Student
     {
-        private Alumno alumno;
+        private IAlumno alumno;
 
-        public AlumnoAdapter(Alumno alumno)
+        public AlumnoAdapter(IAlumno alumno)
         {
             this.alumno = alumno;
         }
@@ -47,7 +48,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Adapter
             return this.alumno.sosMayor(((AlumnoAdapter)student).getAlumno());
         }
 
-        public Alumno getAlumno()
+        public IAlumno getAlumno()
         {
             return this.alumno;
         }

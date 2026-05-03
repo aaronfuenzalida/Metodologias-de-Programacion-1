@@ -18,7 +18,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Strategy
 	public class PorLegajo : IEstrategia
 	{
 		public bool comparar(Comparable c1, Comparable c2){
-			return ((Alumno)c1).getLegajo() > ((Alumno)c2).getLegajo();
+			return ((IAlumno)c1).getLegajo() > ((IAlumno)c2).getLegajo();
 		}
 	}
 }

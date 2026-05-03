@@ -14,7 +14,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Models
 	/// <summary>
 	/// Description of Persona.
 	/// </summary>
-	abstract public class Persona : Comparable
+	abstract public class Persona : IPersona
 	{
 		private string nombre;
 		private int dni;

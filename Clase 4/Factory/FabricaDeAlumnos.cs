@@ -5,7 +5,7 @@ namespace Metodologias_de_Programacion.Clase_4_Adapter__Decorator.Factory
 {
 public class FabricaDeAlumnos : FabricaDeComparables
 {
-    private bool aleatorio = false;
+    protected bool aleatorio = false;
     public override Comparable crearComparable()
     {
         if (aleatorio)
