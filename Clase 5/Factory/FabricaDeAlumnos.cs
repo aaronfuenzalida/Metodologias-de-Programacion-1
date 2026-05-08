@@ -1,5 +1,6 @@
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Interfaces;
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Models;
+using Metodologias_de_Programacion.Clase_5_Proxy__Command.Proxy;
 
 namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Factory
 {
@@ -11,7 +12,7 @@ public class FabricaDeAlumnos : FabricaDeComparables
         if (aleatorio)
         {
             GeneradorDeDatosAleatorios generador = new GeneradorDeDatosAleatorios();
-            return new Alumno(generador.stringAleatorio(10), generador.numeroAleatorio(100000), generador.numeroAleatorio(10), generador.numeroAleatorio(100));
+            return new AlumnoProxy(generador.stringAleatorio(10), generador.numeroAleatorio(100000), generador.numeroAleatorio(10), generador.numeroAleatorio(100),1);
         }
         else
         {
@@ -24,7 +25,7 @@ public class FabricaDeAlumnos : FabricaDeComparables
             int legajo = lector.numeroPorTeclado();
             Console.Write("Ingrese el promedio del alumno: ");
             int promedio = lector.numeroPorTeclado();
-            return new Alumno(nombre, dni, legajo, promedio);
+            return new AlumnoProxy(nombre, dni, legajo, promedio,1);
         }
     }
 

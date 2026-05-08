@@ -1,5 +1,7 @@
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Interfaces;
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Factory;
+using Metodologias_de_Programacion.Clase_5_Proxy__Command.Strategy;
+using Metodologias_de_Programacion.Clase_5_Proxy__Command.Models;
 using System.Text;
 
 namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Proxy
@@ -11,17 +13,17 @@ namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Proxy
         private int legajo;
         private int promedio;
         private int calificacion;
-        private string opcion;
+        private int opcion;
         private IEstrategia estrategia;
 
-        public AlumnoProxy(string nombre, int dni, int legajo, int promedio, string opcion,IEstrategia estrategia)
+        public AlumnoProxy(string nombre, int dni, int legajo, int promedio, int opcion)
         {
             this.nombre = nombre;
             this.dni = dni;
             this.legajo = legajo;
             this.promedio = promedio;
             this.opcion = opcion;
-            this.estrategia = estrategia;
+            this.estrategia = new PorDni();
         }
 
         public string getNombre() => this.nombre;
@@ -48,7 +50,19 @@ namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Proxy
 
         public int responderPregunta(int pregunta)
         {
-            //TODO: IMPLEMENTACION RESTANTE A CONSULTAR
+            if(alumnoReal == null)
+            {
+                Console.WriteLine("Creando alumno real");
+                if (this.opcion == 1)
+                {
+                    alumnoReal = new Alumno(this.nombre, this.dni, this.legajo, this.promedio);
+                }
+                else if (this.opcion == 2)
+                {
+                    alumnoReal = new AlumnoMuyEstudioso(this.nombre, this.dni, this.legajo, this.promedio);
+                }
+            }
+            return alumnoReal.responderPregunta(pregunta);
         }
 
         public bool sosIgual(Comparable persona) => !this.sosMenor(persona) && !this.sosMayor(persona);
