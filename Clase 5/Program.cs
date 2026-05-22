@@ -6,6 +6,8 @@ using Metodologias_de_Programacion.Clase_5_Proxy__Command.Factory;
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Iterator;
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Strategy;
 using Metodologias_de_Programacion.Clase_5_Proxy__Command.Adapter;
+using Metodologias_de_Programacion.Clase_5_Proxy__Command.Command;
+using System.Security.AccessControl;
 
 namespace Metodologias_de_Programacion.Clase_5_Proxy__Command
 {
@@ -13,7 +15,17 @@ namespace Metodologias_de_Programacion.Clase_5_Proxy__Command
 	{
 		public static void Main(string[] args)
 		{	
-		testAdapter();
+		// testAdapter();
+
+		//Ejercicio 10
+		Pila pila = new Pila();
+		Aula aula = new Aula();
+		pila.setOrdenInicio(new OrdenInicio(aula));
+		pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
+		pila.setAulaLlena(new OrdenAulaLlena(aula));
+
+		llenar(pila,"Alumno");
+		llenar(pila,"AlumnoEstudioso");
 
 		Console.ReadKey(true);
 		}
@@ -47,6 +59,15 @@ namespace Metodologias_de_Programacion.Clase_5_Proxy__Command
 			}
 			teacher.teachingAClass();
 
+		}
+
+		public static void llenar(IColeccionable coleccionable, string opcion) 
+		{
+			for (int i= 1 ; i <= 20; i++)
+			{
+				Comparable c = FabricaDeComparables.CrearAleatorio(opcion);
+				coleccionable.agregar(c);
+			}
 		}
 		
 	}

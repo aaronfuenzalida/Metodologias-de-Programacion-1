@@ -14,13 +14,30 @@ using Metodologias_de_Programacion.Clase_5_Proxy__Command.Iterator;
 namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Collections
 {
 
-	public class Cola : IColeccionable, IIterable
+	public class Cola : IColeccionable, IIterable, IOrdenable
     {
         private List<Comparable> datos = new List<Comparable>();
+        private IOrdenEnAula1 ordenInicio;
+        private IOrdenEnAula2 ordenLlegaAlumno;
+        private IOrdenEnAula1 ordenAulaLlena;
         
         public void encolar(Comparable elem)
         {
             this.datos.Add(elem);
+            if(this.cuantos() == 1 && this.ordenInicio != null)
+            {
+                this.ordenInicio.ejecutar();
+            }
+
+            if (this.ordenLlegaAlumno != null)
+            {
+                this.ordenLlegaAlumno.ejecutar(elem);
+            }
+
+            if (this.cuantos() == 40 && this.ordenAulaLlena != null)
+            {
+                this.ordenAulaLlena.ejecutar();
+            }
         }
         
         public Comparable desencolar()
@@ -81,5 +98,21 @@ namespace Metodologias_de_Programacion.Clase_5_Proxy__Command.Collections
         public IIterador crearIterador(){
         	return new IteradorDeCola(this.datos);
         }
+
+        public void setOrdenInicio(IOrdenEnAula1 orden)
+        {
+            this.ordenInicio = orden;
+        }
+
+        public void setOrdenLlegaAlumno(IOrdenEnAula2 orden)
+        {
+            this.ordenLlegaAlumno = orden;
+        }
+
+        public void setAulaLlena(IOrdenEnAula1 orden)
+        {
+            this.ordenAulaLlena = orden;
+        }
+
     }
 }
