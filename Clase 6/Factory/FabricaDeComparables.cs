@@ -25,6 +25,10 @@ public abstract class FabricaDeComparables
                 fabrica = new FabricaDeAlumnosEstudiosos();
                 fabrica.setAleatorioON();
                 break;
+            case "AlumnoCompuesto":
+                fabrica = new FabricaDeAlumnosCompuestos();
+                fabrica.setAleatorioON();
+                break;
             default:
                 throw new ArgumentException("Opcion no valida");
         }
@@ -48,6 +52,9 @@ public abstract class FabricaDeComparables
                 break;
             case "AlumnoEstudioso":
                 fabrica = new FabricaDeAlumnosEstudiosos();
+                break;
+            case "AlumnoCompuesto":
+                fabrica = new FabricaDeAlumnosCompuestos();
                 break;
             default:
                 throw new ArgumentException("Opcion no valida");

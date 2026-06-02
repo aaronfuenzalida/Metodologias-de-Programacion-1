@@ -15,18 +15,10 @@ namespace Metodologias_de_Programacion.Clase_6_Composite__TemplateMethod
        public static void testAdapter()
         {
             Teacher teacher = new Teacher();
-            AlumnoCompuesto alumnoCompuesto = new AlumnoCompuesto();
-    
-            for (int i = 0 ; i < 5; i++)
-            {
-                Comparable alumno = FabricaDeComparables.CrearAleatorio("Alumno");
-                alumnoCompuesto.agregarAlumno((IAlumno)alumno);
-            }
-    
-            Student alumnoAdapter = new AlumnoAdapter(alumnoCompuesto);
-    
+            // La fabrica ya brinda un alumno compuesto aleatorio, con 5 alumnos adentro
+            AlumnoCompuesto grupoDeAlumnos = (AlumnoCompuesto)FabricaDeComparables.CrearAleatorio("AlumnoCompuesto");
+            Student alumnoAdapter = new AlumnoAdapter(grupoDeAlumnos);
             teacher.goToClass(alumnoAdapter);
-    
             teacher.teachingAClass();
         }
     }
