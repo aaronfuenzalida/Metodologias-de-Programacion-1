@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Proxy
 {
-    public class AlumnoProxy : IAlumno{
+    public class AlumnoProxy : IAlumno
+    {
         private IAlumno alumnoReal = null;
         private string nombre;
         private int dni;
@@ -27,7 +28,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Proxy
         }
 
         public string getNombre() => this.nombre;
-    
+
         public int getDni() => this.dni;
 
         public void cambiarEstrategia(IEstrategia nvaEstrategia)
@@ -50,7 +51,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Proxy
 
         public int responderPregunta(int pregunta)
         {
-            if(alumnoReal == null)
+            if (alumnoReal == null)
             {
                 Console.WriteLine("Creando alumno real");
                 if (this.opcion == 1)
@@ -71,7 +72,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Proxy
 
         public bool sosMayor(Comparable persona) => this.estrategia.comparar(this, (IAlumno)persona);
 
-        
+
     }
 
 

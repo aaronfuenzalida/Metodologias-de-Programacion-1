@@ -11,12 +11,12 @@ using System;
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces
 {
 
-	public interface IColeccionable
-	{
-		int cuantos();
-		Comparable minimo();
-		Comparable maximo();
-		void agregar(Comparable comparable);
-		bool contiene(Comparable comparable);
-	}
+    public interface IColeccionable
+    {
+        int cuantos();
+        Comparable minimo();
+        Comparable maximo();
+        void agregar(Comparable comparable);
+        bool contiene(Comparable comparable);
+    }
 }

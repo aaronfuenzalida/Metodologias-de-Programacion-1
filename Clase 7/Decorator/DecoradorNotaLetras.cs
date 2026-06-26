@@ -44,7 +44,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Decorator
                     calificacion = "UNO";
                     break;
                 default:
-                    calificacion = "CERO / SIN NOTA" ;
+                    calificacion = "CERO / SIN NOTA";
                     break;
             }
             string textoAnterior = base.mostrarCalificacion();

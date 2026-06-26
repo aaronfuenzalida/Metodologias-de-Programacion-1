@@ -11,11 +11,11 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces
 {
-	/// <summary>
-	/// Description of Estrategia.
-	/// </summary>
-	public interface IEstrategia
-	{
-		bool comparar(Comparable c1, Comparable c2);
-	}
+    /// <summary>
+    /// Description of Estrategia.
+    /// </summary>
+    public interface IEstrategia
+    {
+        bool comparar(Comparable c1, Comparable c2);
+    }
 }

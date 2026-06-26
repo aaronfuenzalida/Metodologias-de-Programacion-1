@@ -12,14 +12,15 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Strategy
 {
-	/// <summary>
-	/// Description of PorNombre.
-	/// </summary>
-	public class PorNombre : IEstrategia
-	{
-		public bool comparar(Comparable c1, Comparable c2){
-			return ((IPersona)c1).getNombre().Length > ((IPersona)c2).getNombre().Length;
-			}
-		}
-	}
+    /// <summary>
+    /// Description of PorNombre.
+    /// </summary>
+    public class PorNombre : IEstrategia
+    {
+        public bool comparar(Comparable c1, Comparable c2)
+        {
+            return ((IPersona)c1).getNombre().Length > ((IPersona)c2).getNombre().Length;
+        }
+    }
+}
 

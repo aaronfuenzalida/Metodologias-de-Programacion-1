@@ -4,7 +4,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Decorator
 {
     public class DecoradorNotaEstado : DecoradorAlumno
     {
-        public DecoradorNotaEstado(IAlumno alumno) : base(alumno){}
+        public DecoradorNotaEstado(IAlumno alumno) : base(alumno) { }
 
         public override string mostrarCalificacion()
         {

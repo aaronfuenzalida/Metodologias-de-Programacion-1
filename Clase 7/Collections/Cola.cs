@@ -14,17 +14,17 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Iterator;
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Collections
 {
 
-	public class Cola : IColeccionable, IIterable, IOrdenable
+    public class Cola : IColeccionable, IIterable, IOrdenable
     {
         private List<Comparable> datos = new List<Comparable>();
         private IOrdenEnAula1 ordenInicio;
         private IOrdenEnAula2 ordenLlegaAlumno;
         private IOrdenEnAula1 ordenAulaLlena;
-        
+
         public void encolar(Comparable elem)
         {
             this.datos.Add(elem);
-            if(this.cuantos() == 1 && this.ordenInicio != null)
+            if (this.cuantos() == 1 && this.ordenInicio != null)
             {
                 this.ordenInicio.ejecutar();
             }
@@ -39,23 +39,23 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Collections
                 this.ordenAulaLlena.ejecutar();
             }
         }
-        
+
         public Comparable desencolar()
         {
             Comparable temp = this.datos[0];
             this.datos.RemoveAt(0);
             return temp;
         }
-        
+
         public int cuantos()
         {
             return this.datos.Count;
         }
-        
+
         public Comparable minimo()
         {
             Comparable min = this.datos[0];
-            foreach(Comparable elemento in this.datos)
+            foreach (Comparable elemento in this.datos)
             {
                 if (elemento.sosMenor(min))
                 {
@@ -64,28 +64,28 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Collections
             }
             return min;
         }
-        
+
         public Comparable maximo()
         {
             Comparable max = this.datos[0];
-            foreach(Comparable elemento in this.datos)
+            foreach (Comparable elemento in this.datos)
             {
-                if(elemento.sosMayor(max))
+                if (elemento.sosMayor(max))
                 {
                     max = elemento;
                 }
             }
             return max;
         }
-        
+
         public void agregar(Comparable valor)
         {
-            this.encolar(valor); 
+            this.encolar(valor);
         }
-        
+
         public bool contiene(Comparable valor)
         {
-            foreach(Comparable elemento in this.datos)
+            foreach (Comparable elemento in this.datos)
             {
                 if (elemento.sosIgual(valor))
                 {
@@ -94,9 +94,10 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Collections
             }
             return false;
         }
-        
-        public IIterador crearIterador(){
-        	return new IteradorDeCola(this.datos);
+
+        public IIterador crearIterador()
+        {
+            return new IteradorDeCola(this.datos);
         }
 
         public void setOrdenInicio(IOrdenEnAula1 orden)

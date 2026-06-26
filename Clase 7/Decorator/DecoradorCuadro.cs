@@ -9,11 +9,11 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Decorator
 
         public override string mostrarCalificacion()
         {
-           string contenido = base.mostrarCalificacion();
+            string contenido = base.mostrarCalificacion();
 
-           string borde = new string('*', contenido.Length + 4);
+            string borde = new string('*', contenido.Length + 4);
 
-           return $"{borde}\n* {contenido} *\n{borde}";
+            return $"{borde}\n* {contenido} *\n{borde}";
         }
     }
 

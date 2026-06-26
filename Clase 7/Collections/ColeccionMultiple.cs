@@ -12,21 +12,21 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Iterator;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Collections
 {
-	/// <summary>
-	/// Description of ColeccionMultiple.
-	/// </summary>
-	public class ColeccionMultiple : IColeccionable , IIterable
-	{
-		private Cola cola;
-		private Pila pila;
-		
-		public ColeccionMultiple(Cola cola, Pila pila)
-		{
-			this.cola= cola;
-			this.pila= pila;
-		}
-		
-public void agregar(Comparable c)
+    /// <summary>
+    /// Description of ColeccionMultiple.
+    /// </summary>
+    public class ColeccionMultiple : IColeccionable, IIterable
+    {
+        private Cola cola;
+        private Pila pila;
+
+        public ColeccionMultiple(Cola cola, Pila pila)
+        {
+            this.cola = cola;
+            this.pila = pila;
+        }
+
+        public void agregar(Comparable c)
         {
             throw new NotImplementedException();
         }
@@ -51,20 +51,20 @@ public void agregar(Comparable c)
             return (this.pila.minimo().sosMenor(this.cola.minimo())) ? this.pila.minimo() : this.cola.minimo();
         }
 
-		public Pila getPila()
-		{
-			return this.pila;
-		}
+        public Pila getPila()
+        {
+            return this.pila;
+        }
 
-		public Cola getCola()
-		{
-			return this.cola;
-		}
+        public Cola getCola()
+        {
+            return this.cola;
+        }
 
-		public IIterador crearIterador()
-		{
-			return new IteradorDeColeccionMultiple(this);
-		}
-	}
+        public IIterador crearIterador()
+        {
+            return new IteradorDeColeccionMultiple(this);
+        }
+    }
 }
 

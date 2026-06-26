@@ -12,35 +12,40 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces;
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
 {
 
-	public class Numero : Comparable
-	{
-		private int valor;
-		
-		public Numero(int v){
-			this.valor = v;
-		}
-		
-		public int getValor(){
-		return this.valor;
-		}
-		
-		public bool sosIgual(Comparable valor) {
-			return ((Numero)valor).getValor() == this.valor;
-    	}
+    public class Numero : Comparable
+    {
+        private int valor;
 
-    	public bool sosMenor(Comparable valor) {
-			return ((Numero)valor).getValor() > this.valor;
-		}
+        public Numero(int v)
+        {
+            this.valor = v;
+        }
 
-    	public bool sosMayor(Comparable valor) {
-			return ((Numero)valor).getValor() < this.valor;
-    	}
-		
-		public override string ToString()
-		{
-			return string.Format("{0}", valor);
-		}
+        public int getValor()
+        {
+            return this.valor;
+        }
 
-			
-	}
+        public bool sosIgual(Comparable valor)
+        {
+            return ((Numero)valor).getValor() == this.valor;
+        }
+
+        public bool sosMenor(Comparable valor)
+        {
+            return ((Numero)valor).getValor() > this.valor;
+        }
+
+        public bool sosMayor(Comparable valor)
+        {
+            return ((Numero)valor).getValor() < this.valor;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", valor);
+        }
+
+
+    }
 }

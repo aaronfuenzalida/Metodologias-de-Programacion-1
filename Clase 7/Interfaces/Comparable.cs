@@ -10,14 +10,14 @@ using System;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces
 {
-	/// <summary>
-	/// Description of Comparable.
-	/// </summary>
-	public interface Comparable
-	{
-		bool sosIgual(Comparable valor);
-		bool sosMenor(Comparable valor);
-		bool sosMayor(Comparable valor);
-		
-	}
+    /// <summary>
+    /// Description of Comparable.
+    /// </summary>
+    public interface Comparable
+    {
+        bool sosIgual(Comparable valor);
+        bool sosMenor(Comparable valor);
+        bool sosMayor(Comparable valor);
+
+    }
 }

@@ -21,10 +21,10 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Composite
 
         public string getNombre()
         {
-            if(this.alumnos.Count > 0)
+            if (this.alumnos.Count > 0)
             {
                 string nombres = "";
-                foreach(IAlumno a in this.alumnos)
+                foreach (IAlumno a in this.alumnos)
                 {
                     nombres += a.getNombre() + ", ";
                 }
@@ -36,7 +36,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Composite
         public int responderPregunta(int pregunta)
         {
             List<int> respuestas = new List<int>();
-            foreach(IAlumno a in this.alumnos)
+            foreach (IAlumno a in this.alumnos)
             {
                 respuestas.Add(a.responderPregunta(pregunta));
             }
@@ -52,7 +52,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Composite
 
         public void setNota(int cal)
         {
-            foreach(IAlumno a in this.alumnos)
+            foreach (IAlumno a in this.alumnos)
             {
                 a.setNota(cal);
             }
@@ -61,7 +61,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Composite
         public string mostarCalificacion()
         {
             string calificaciones = "";
-            foreach(IAlumno a in this.alumnos)
+            foreach (IAlumno a in this.alumnos)
             {
                 calificaciones += a.mostrarCalificacion() + "\n";
             }
@@ -88,7 +88,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Composite
         //Se implementa el resto de metodos de interfaces por mas que no se pida en la practica 
         public void cambiarEstrategia(IEstrategia nvaEstrategia)
         {
-            foreach(IAlumno a in this.alumnos)
+            foreach (IAlumno a in this.alumnos)
             {
                 a.cambiarEstrategia(nvaEstrategia);
             }

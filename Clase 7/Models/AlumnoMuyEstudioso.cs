@@ -8,7 +8,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
 
         public override int responderPregunta(int pregunta)
         {
-            return pregunta % 3 ;
+            return pregunta % 3;
         }
     }
 

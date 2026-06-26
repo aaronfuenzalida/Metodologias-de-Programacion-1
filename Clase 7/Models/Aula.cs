@@ -26,6 +26,6 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
         {
             this.teacher.teachingAClass();
         }
-        
+
     }
 }

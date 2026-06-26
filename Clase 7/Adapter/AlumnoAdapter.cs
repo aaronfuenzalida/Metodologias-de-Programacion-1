@@ -39,7 +39,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Adapter
         }
 
         public bool lessThan(Student student)
-        {  
+        {
             return this.alumno.sosMenor(((AlumnoAdapter)student).getAlumno());
         }
 

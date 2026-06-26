@@ -24,7 +24,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
             int indicePalo1 = rnd.Next(cartasPalo.Count);
             int indiceNumero1 = rnd.Next(cartasNumero.Count);
             // Convertimos el string a int para poder comparar matematicamente quien es mayor
-            valorCartaJ1 = int.Parse(cartasNumero[indiceNumero1]); 
+            valorCartaJ1 = int.Parse(cartasNumero[indiceNumero1]);
             Console.WriteLine($"\n{this.jugador1.getNombre()} saca un {cartasNumero[indiceNumero1]} de {cartasPalo[indicePalo1]}.");
 
             // Turno Jugador 2
@@ -34,13 +34,13 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
             int indiceNumero2 = rnd.Next(cartasNumero.Count);
             valorCartaJ2 = int.Parse(cartasNumero[indiceNumero2]);
             Console.WriteLine($"\n{this.jugador2.getNombre()} saca un {cartasNumero[indiceNumero2]} de {cartasPalo[indicePalo2]}.");
-            
+
             // --- SISTEMA DE DESEMPATE ---
             // Si llegan a sacar el mismo número, entran en "Guerra" y tiran de nuevo
             while (valorCartaJ1 == valorCartaJ2)
             {
                 Console.WriteLine("\n¡EMPATE! ¡Se declara la GUERRA! Ambos deben sacar otra carta.");
-                
+
                 // J1 saca de nuevo
                 Console.Write($"{this.jugador1.getNombre()} tire su carta (Pulse una tecla)");
                 Console.ReadKey();
@@ -60,7 +60,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
         }
 
         override protected void descartarCartas() => Console.WriteLine("\nJuntando las cartas de la mesa...");
-        
+
         override protected Persona determinarGanador()
         {
             // El que tenga el valor mas alto, gana
@@ -69,7 +69,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
                 Console.WriteLine($"\n{this.jugador1.getNombre()} tiene la carta mayor y gana la partida!");
                 return this.jugador1;
             }
-            else 
+            else
             {
                 Console.WriteLine($"\n{this.jugador2.getNombre()} tiene la carta mayor y gana la partida!");
                 return this.jugador2;

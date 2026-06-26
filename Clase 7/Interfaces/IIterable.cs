@@ -10,11 +10,11 @@ using System;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces
 {
-	/// <summary>
-	/// Description of IIterable.
-	/// </summary>
-	public interface IIterable
-	{
-		IIterador crearIterador();
-	}
+    /// <summary>
+    /// Description of IIterable.
+    /// </summary>
+    public interface IIterable
+    {
+        IIterador crearIterador();
+    }
 }

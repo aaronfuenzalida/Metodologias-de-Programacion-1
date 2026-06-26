@@ -4,39 +4,18 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Proxy;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Factory
 {
-public class FabricaDeAlumnos : FabricaDeComparables
-{
-    protected bool aleatorio = false;
-    public override Comparable crearComparable()
+    public class FabricaDeAlumnos : FabricaDeComparables
     {
-        if (aleatorio)
+        public override Comparable crearComparable()
         {
-            GeneradorDeDatosAleatorios generador = new GeneradorDeDatosAleatorios();
-            return new AlumnoProxy(generador.stringAleatorio(10), generador.numeroAleatorio(100000), generador.numeroAleatorio(10), generador.numeroAleatorio(100),1);
-        }
-        else
-        {
-            LectorDeDatos lector = new LectorDeDatos();
-            Console.Write("Ingrese el nombre del alumno");
-            string nombre = lector.stringPorTeclado();
-            Console.Write("Ingrese el dni del alumno: ");
-            int dni = lector.numeroPorTeclado();
-            Console.Write("Ingrese el legajo: ");
-            int legajo = lector.numeroPorTeclado();
-            Console.Write("Ingrese el promedio del alumno: ");
-            int promedio = lector.numeroPorTeclado();
-            return new AlumnoProxy(nombre, dni, legajo, promedio,1);
+            if(opcionActual == 2) Console.WriteLine("--- Ingrese datos del Alumno ---");
+            
+            string nombre = manejador.cadena(10, opcionActual);
+            int dni = manejador.numero(100000, opcionActual);
+            int legajo = manejador.numero(10, opcionActual);
+            int promedio = manejador.numero(100, opcionActual);
+
+            return new AlumnoProxy(nombre, dni, legajo, promedio, 1);
         }
     }
-
-    public override void setAleatorioON()
-    {
-        aleatorio = true;
-    }
-
-    public override void setAleatorioOFF()
-    {
-        aleatorio = false;
-    }
-}
 }

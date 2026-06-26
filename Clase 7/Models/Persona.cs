@@ -11,20 +11,20 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
 {
-	/// <summary>
-	/// Description of Persona.
-	/// </summary>
-	abstract public class Persona : IPersona
-	{
-		private string nombre;
-		private int dni;
-		
-		public Persona(string n,int d)
-		{
-			this.nombre= n;
-			this.dni= d;
-		}
-		
+    /// <summary>
+    /// Description of Persona.
+    /// </summary>
+    abstract public class Persona : IPersona
+    {
+        private string nombre;
+        private int dni;
+
+        public Persona(string n, int d)
+        {
+            this.nombre = n;
+            this.dni = d;
+        }
+
         public string getNombre() => nombre;
 
         public int getDni() => dni;
@@ -36,5 +36,5 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
         public virtual bool sosMayor(Comparable c) => dni > ((Persona)c).getDni();
 
         public override string ToString() => string.Format("[Persona: Nombre={0}, Dni={1}]", nombre, dni);
-	}
+    }
 }

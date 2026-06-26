@@ -3,7 +3,7 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Iterator
 {
-    
+
     public class IteradorDePila : IIterador
     {
         private List<Comparable> datos;
@@ -11,7 +11,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Iterator
 
         public IteradorDePila(List<Comparable> elementos)
         {
-            this.datos=elementos;
+            this.datos = elementos;
             this.primero();
         }
 

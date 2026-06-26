@@ -1,25 +1,20 @@
 
+using System;
 using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces;
 using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Factory
 {
-public class FabricaDeNumeros : FabricaDeComparables
-{
-    bool aleatorio = false;
-    public override Comparable crearComparable()
+    public class FabricaDeNumeros : FabricaDeComparables
     {
-        return new Numero(aleatorio ? new GeneradorDeDatosAleatorios().numeroAleatorio(100) : new LectorDeDatos().numeroPorTeclado());
+        public override Comparable crearComparable()
+        {
+            if(opcionActual == 2) Console.WriteLine("--- Ingrese un Numero ---");
+            
+            // Pide un numero con tope 1000. La cadena decide de donde lo saca.
+            int valor = manejador.numero(1000, opcionActual);
+            
+            return new Numero(valor);
+        }
     }
-
-    public override void setAleatorioON()
-    {
-        aleatorio = true;
-    }
-
-    public override void setAleatorioOFF()
-    {
-        aleatorio = false;
-    }
-}
 }

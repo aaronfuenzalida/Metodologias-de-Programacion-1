@@ -82,7 +82,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
         }
 
         override protected void descartarCartas() => Console.WriteLine("\nDescartando las cartas de la mesa...");
-        
+
         override protected Persona determinarGanador()
         {
             if (bombaJugador1)
@@ -90,7 +90,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
                 Console.WriteLine($"\n¡{this.jugador2.getNombre()} gana la partida!");
                 return this.jugador2;
             }
-            else 
+            else
             {
                 Console.WriteLine($"\n¡{this.jugador1.getNombre()} gana la partida!");
                 return this.jugador1;

@@ -1,71 +1,62 @@
 using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces;
+using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Factory
 {
-public abstract class FabricaDeComparables
-{
-    public static Comparable CrearAleatorio(string opcion)
+    public abstract class FabricaDeComparables
     {
-        FabricaDeComparables fabrica;
-        switch (opcion)
+        protected ManejadorObtencionDatos manejador;
+        protected int opcionActual; 
+
+        public FabricaDeComparables()
         {
-            case "Numero":
-                fabrica = new FabricaDeNumeros();
-                fabrica.setAleatorioON();
-                break;
-            case "Alumno":
-                fabrica= new FabricaDeAlumnos();
-                fabrica.setAleatorioON();
-                break;
-            case "Profesor":
-                fabrica = new FabricaDeProfesores();
-                fabrica.setAleatorioON();
-                break;
-            case "AlumnoEstudioso":
-                fabrica = new FabricaDeAlumnosEstudiosos();
-                fabrica.setAleatorioON();
-                break;
-            case "AlumnoCompuesto":
-                fabrica = new FabricaDeAlumnosCompuestos();
-                fabrica.setAleatorioON();
-                break;
-            default:
-                throw new ArgumentException("Opcion no valida");
+            GeneradorDeDatosAleatorios random = GeneradorDeDatosAleatorios.GetInstance();
+            LectorDeDatos teclado = new LectorDeDatos();
+            LectorDeArchivos archivo = LectorDeArchivos.GetInstance();
+
+            random.setSucesor(teclado);
+            teclado.setSucesor(archivo);
+
+            this.manejador = random;
         }
 
-        return fabrica.crearComparable();
-    }
-
-    public static Comparable CrearPorTeclado(string opcion)
-    {
-        FabricaDeComparables fabrica;
-        switch (opcion)
+        public static Comparable CrearAleatorio(string tipo)
         {
-            case "Numero":
-                fabrica = new FabricaDeNumeros();
-                break;
-            case "Alumno":
-                fabrica = new FabricaDeAlumnos();
-                break;
-            case "Profesor":
-                fabrica = new FabricaDeProfesores();
-                break;
-            case "AlumnoEstudioso":
-                fabrica = new FabricaDeAlumnosEstudiosos();
-                break;
-            case "AlumnoCompuesto":
-                fabrica = new FabricaDeAlumnosCompuestos();
-                break;
-            default:
-                throw new ArgumentException("Opcion no valida");
+            FabricaDeComparables fabrica = ObtenerFabrica(tipo);
+            fabrica.opcionActual = 1; 
+            return fabrica.crearComparable();
         }
 
-        return fabrica.crearComparable();
-    }
+        public static Comparable CrearPorTeclado(string tipo)
+        {
+            FabricaDeComparables fabrica = ObtenerFabrica(tipo);
+            fabrica.opcionActual = 2; 
+            return fabrica.crearComparable();
+        }
 
-    public abstract Comparable crearComparable();
+        public static Comparable CrearDesdeArchivo(string tipo)
+        {
+            FabricaDeComparables fabrica = ObtenerFabrica(tipo);
+            fabrica.opcionActual = 3; 
+            return fabrica.crearComparable();
+        }
 
-    public abstract void setAleatorioON();
-    public abstract void setAleatorioOFF();
+        private static FabricaDeComparables ObtenerFabrica(string tipo)
+        {
+            switch (tipo)
+            {
+                case "Numero": return new FabricaDeNumeros();
+                case "Alumno": return new FabricaDeAlumnos();
+                case "Profesor": return new FabricaDeProfesores();
+                case "AlumnoEstudioso": return new FabricaDeAlumnosEstudiosos();
+                case "AlumnoCompuesto": return new FabricaDeAlumnosCompuestos();
+                default: throw new ArgumentException("Opcion no valida");
+            }
+        }
+
+        public abstract Comparable crearComparable();
+
+        public virtual void setAleatorioON() { opcionActual = 1; }
+        public virtual void setAleatorioOFF() { opcionActual = 2; }
     }
 }

@@ -12,13 +12,14 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Strategy
 {
-	/// <summary>
-	/// Description of PorLegajo.
-	/// </summary>
-	public class PorLegajo : IEstrategia
-	{
-		public bool comparar(Comparable c1, Comparable c2){
-			return ((IAlumno)c1).getLegajo() > ((IAlumno)c2).getLegajo();
-		}
-	}
+    /// <summary>
+    /// Description of PorLegajo.
+    /// </summary>
+    public class PorLegajo : IEstrategia
+    {
+        public bool comparar(Comparable c1, Comparable c2)
+        {
+            return ((IAlumno)c1).getLegajo() > ((IAlumno)c2).getLegajo();
+        }
+    }
 }

@@ -10,14 +10,14 @@ using System;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Interfaces
 {
-	/// <summary>
-	/// Description of IIterador.
-	/// </summary>
-	public interface IIterador
-	{
-		void primero();
-		void siguiente();
-		bool fin();
-		Comparable actual();
-	}
+    /// <summary>
+    /// Description of IIterador.
+    /// </summary>
+    public interface IIterador
+    {
+        void primero();
+        void siguiente();
+        bool fin();
+        Comparable actual();
+    }
 }

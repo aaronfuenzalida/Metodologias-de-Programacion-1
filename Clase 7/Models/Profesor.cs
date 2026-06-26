@@ -3,23 +3,24 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Strategy;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
 {
-    public class Profesor : Persona , IObservado
+    public class Profesor : Persona, IObservado
     {
         private int antiguedad;
         private bool hablando;
         private IEstrategia estrategia;
         private List<IObservador> observadores = new List<IObservador>();
 
-        public Profesor(string n,int d,int a) : base(n,d)
+        public Profesor(string n, int d, int a) : base(n, d)
         {
             this.antiguedad = a;
             this.estrategia = new PorDni();
             this.hablando = false;
         }
 
-        public void cambiarEstrategia(IEstrategia nEstrategia){
-		    this.estrategia = nEstrategia;
-		}
+        public void cambiarEstrategia(IEstrategia nEstrategia)
+        {
+            this.estrategia = nEstrategia;
+        }
 
         public void hablarALaClase()
         {
@@ -47,9 +48,9 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models
 
         public override bool sosIgual(Comparable persona) => !this.sosMenor(persona) && !this.sosMayor(persona);
 
-		public override bool sosMenor(Comparable persona) => estrategia.comparar((Profesor)persona, this);
+        public override bool sosMenor(Comparable persona) => estrategia.comparar((Profesor)persona, this);
 
-		public override bool sosMayor(Comparable persona) => estrategia.comparar(this, (Profesor)persona);
+        public override bool sosMayor(Comparable persona) => estrategia.comparar(this, (Profesor)persona);
 
         public void agregarObservador(IObservador o)
         {

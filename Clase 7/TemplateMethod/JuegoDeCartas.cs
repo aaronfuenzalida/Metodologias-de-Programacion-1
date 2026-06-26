@@ -15,7 +15,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
         {
             this.jugador1 = p1;
             this.jugador2 = p2;
-            
+
             int puntosJ1 = 0;
             int puntosJ2 = 0;
             int manosJugadas = 1;
@@ -26,20 +26,20 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
             while (puntosJ1 < 3 && puntosJ2 < 3)
             {
                 Console.WriteLine($"\n--- MANO {manosJugadas} ---");
-                
+
                 this.mezclarMazo();
                 this.repartirCartas();
                 this.tomarCartas();
                 this.jugarMano();
                 this.descartarCartas();
-                
+
                 Persona ganadorMano = this.determinarGanador();
-                
+
                 if (ganadorMano == this.jugador1)
                 {
                     puntosJ1++;
                 }
-                else 
+                else
                 {
                     puntosJ2++;
                 }
@@ -62,7 +62,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.TemplateMethod
         protected abstract void repartirCartas();
         protected abstract void jugarMano();
         protected abstract void tomarCartas();
-        protected abstract void descartarCartas();   
-        protected abstract Persona determinarGanador(); 
+        protected abstract void descartarCartas();
+        protected abstract Persona determinarGanador();
     }
 }

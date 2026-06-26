@@ -30,13 +30,13 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Iterator
             {
                 this.iteradorCola.siguiente();
             }
-    }
-        
+        }
+
 
         public bool fin()
         {
             return this.iteradorPila.fin() && this.iteradorCola.fin();
-           
+
         }
 
         public Comparable actual()

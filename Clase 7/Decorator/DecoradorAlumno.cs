@@ -6,7 +6,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Decorator
 {
     public abstract class DecoradorAlumno : IAlumno
     {
-        protected IAlumno adicional; 
+        protected IAlumno adicional;
 
         public DecoradorAlumno(IAlumno alumno)
         {
@@ -21,7 +21,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Decorator
         public virtual int getNota() => adicional.getNota();
         public virtual void setNota(int cal) => adicional.setNota(cal);
         public virtual int responderPregunta(int pregunta) => adicional.responderPregunta(pregunta);
-        
+
         public virtual string mostrarCalificacion() => adicional.mostrarCalificacion();
 
         public virtual bool sosIgual(Comparable c) => adicional.sosIgual(c);

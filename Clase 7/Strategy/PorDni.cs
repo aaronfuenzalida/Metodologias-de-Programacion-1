@@ -12,13 +12,14 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Models;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Strategy
 {
-	/// <summary>
-	/// Description of PorDni.
-	/// </summary>
-	public class PorDni : IEstrategia
-	{
-		public bool comparar(Comparable c1, Comparable c2){
-			return ((IPersona)c1).getDni() > ((IPersona)c2).getDni();
-		}
-	}
+    /// <summary>
+    /// Description of PorDni.
+    /// </summary>
+    public class PorDni : IEstrategia
+    {
+        public bool comparar(Comparable c1, Comparable c2)
+        {
+            return ((IPersona)c1).getDni() > ((IPersona)c2).getDni();
+        }
+    }
 }

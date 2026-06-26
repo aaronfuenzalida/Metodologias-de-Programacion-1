@@ -5,7 +5,7 @@ using Metodologias_de_Programacion.Clase_7_Chain__Singleton.Adapter;
 
 namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Factory
 {
-    public class StudentStudiousFactory : FabricaDeAlumnosEstudiosos 
+    public class StudentStudiousFactory : FabricaDeAlumnosEstudiosos
     {
         public Student StudentStudiousDecoration()
         {

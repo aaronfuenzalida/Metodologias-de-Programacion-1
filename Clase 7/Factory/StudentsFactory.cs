@@ -13,7 +13,7 @@ namespace Metodologias_de_Programacion.Clase_7_Chain__Singleton.Factory
         {
             Comparable alumno = base.crearComparable();
 
-            IAlumno dec= new DecoradorLegajo((IAlumno)alumno);
+            IAlumno dec = new DecoradorLegajo((IAlumno)alumno);
             dec = new DecoradorNotaEstado(dec);
             dec = new DecoradorNotaLetras(dec);
             dec = new DecoradorCuadro(dec);
